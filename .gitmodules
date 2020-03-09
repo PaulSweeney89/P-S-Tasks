@@ -1,0 +1,18 @@
+[submodule "BMI-Calc"]
+	path = BMI-Calc
+	url = https://github.com/PaulSweeney89/BMI-Calc.git
+[submodule "secondstring"]
+	path = secondstring
+	url = https://github.com/PaulSweeney89/secondstring.git
+[submodule "collatz"]
+	path = collatz
+	url = https://github.com/PaulSweeney89/collatz.git
+[submodule "weekday"]
+	path = weekday
+	url = https://github.com/PaulSweeney89/weekday.git
+[submodule "squareroot"]
+	path = squareroot
+	url = https://github.com/PaulSweeney89/squareroot.git
+[submodule "es"]
+	path = es
+	url = https://github.com/PaulSweeney89/es.git
