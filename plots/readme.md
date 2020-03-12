@@ -45,3 +45,6 @@ plt.title("Functions of X")
 plt.show()
 #plt.savefig("plots.png")                       # option to save plot as .png file.
 ```
+Program output:
+
+![plot](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/plots/plots.png)
