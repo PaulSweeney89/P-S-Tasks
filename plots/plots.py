@@ -11,8 +11,8 @@ g = x**2                                        # Function 2: g(x) = x^2 (square
 h = x**3                                        # Function 3: h(x) = x^3 (cubed)    
 
 plt.plot(x, f, "b.", label="f(x) = x")          # plotting x vs f(x) as blue dots & label "f(x) = x"
-plt.plot(x, g, "r.", label="g(x) = x**2")       # plotting x vs g(x) as blue dots & label "g(x) = x**2"
-plt.plot(x, h, "g.", label="h(x) = x**3")       # plotting x vs h(x) as blue dots & label "h(x) = x**3"
+plt.plot(x, g, "r.", label="g(x) = x**2")       # plotting x vs g(x) as red dots & label "g(x) = x**2"
+plt.plot(x, h, "g.", label="h(x) = x**3")       # plotting x vs h(x) as green dots & label "h(x) = x**3"
 
 plt.legend()                                    # include legend in plot.
 plt.title("Functions of X")                     # add title to plot.
