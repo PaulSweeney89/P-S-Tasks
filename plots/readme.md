@@ -1,6 +1,6 @@
 # plots
 
-**Simple script to  or program to create & plot 'X' vs 3 No. functions of 'X' on single graph or plot.**
+**Simple script to create & plot 'X' vs 3 No. functions of 'X' on single graph or plot.**
 
 *Week 8 task*
 
@@ -48,3 +48,9 @@ plt.show()
 Program output:
 
 ![plot](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/plots/plots.png)
+
+References:
+
+[Numpy](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html)
+
+[matplotlib.pyplot](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)
