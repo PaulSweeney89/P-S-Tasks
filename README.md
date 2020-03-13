@@ -15,6 +15,8 @@ Programming and Scripting Weekly Tasks
 
 - Week 7: es
 
+- Week 8: plot
+
 [Learn Online Gmit](https://learnonline.gmit.ie/course/view.php?id=1598)
 
 ## GIT commands used for submodules
@@ -43,6 +45,14 @@ git submodule foreach git pull origin master
 ```
 
 [Working with submodules](https://github.blog/2016-02-01-working-with-submodules/)
+
+## Formatting README.md Files
+
+- adding images to readme.md file.
+```
+![image_name](http://url/to/img.png)
+```
+[Add images to README](https://stackoverflow.com/questions/14494747/add-images-to-readme-md-on-github)
 
 
 
