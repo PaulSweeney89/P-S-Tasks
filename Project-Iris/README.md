@@ -1,12 +1,12 @@
-# Project Iris
+# Project Iris #
 
 **Programming & Scripting Project 2020**
 
 *Research of the Fisher's Iris dataset and the developement of a program to read and analyize the dataset.*
 
-# Introduction
+## Introduction ##
 
-This project forms part of the programming & scripting module for 2020, please refer to the project.pdf document included in this repository for the full project outline & instructions.
+This project forms part of the programming & scripting module for 2020, please refer to the [project.pdf](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/project.pdf) document included in this repository for the full project outline & instructions.
 
 The project is conducted under 3 main sections:
 
@@ -16,34 +16,36 @@ The project is conducted under 3 main sections:
 
 - Analysis of the dataset & review of the program outputs, reporting on & summarizing any findings within the dataset & project.
 
-# Research
+## Research ##
 
 The Iris flower dataset or Fisher's Iris dataset was introduced by the British statistician and biologist Ronald Fisher in 1936.
 There are over 250 varieties of the iris flower and they come in a wide range of colours, the greek word iris means rainbow.
 
 Fisher's data set contains 3 species of the Iris plant: 
 
-	- Iris Setosa 
-	- Iris Virginica 
-	- Iris Versicolor
+- Iris Setosa 
+- Iris Virginica 
+- Iris Versicolor
 
-| Iris Setosa | Iris Virginica | Iris Versicolor |
+| Iris Setosa | Iris Versicolor | Iris Virginica  |
 |----------------------------------------|----------------------------------------|----------------------------------------|
 | ![setosa](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Setosa%20-%20resized.jpeg) | ![versicolor](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Versicolor%20-%20resized.jpeg) | ![virginica](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Virginica%20-%20resized.jpeg) |
  
 50 samples of each of the 3 species were taken, with 4 characteristics of the flowers measured, the species of the flower was also included as a 5th attribute within the dataset.
 
-	(1) sepal length (cm)
-	(2) sepal width (cm)
-	(3) pedal length (cm)
-	(4) pedal width (cm)
-	(5) species
+1. sepal length (cm)
+2. sepal width (cm)
+3. pedal length (cm)
+4. pedal width (cm)
+5. species
  
 Therefore there is 50 samples for each of the 3 species of Iris, each with 5 attributes giving a total number of 750 data points within Fischer's dataset.
 
 From the dataset Fisher developed a linear discriminant model to distinguish the 3 species from each other.
 
-*linear discriminant model* - 
+*linear discriminant model* - is a statisical model that is developed to discriminate between or separate two or more groups of samples in order to develop a classifier.
+
+e.g Fisher analysis of the Iris dataset was able to classify or identify the Iris flower into one of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower os sample data (sepal length, sepal width, pedal length, pedal width). 
 
 
 
@@ -66,6 +68,8 @@ References:
 [Wiki Commons Flower Images](https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg)
 
 Note: Text added to images from Wiki Commons using GIMP - GNU Image Manipulation Program
+
+[Statistics4u - Linear Discriminant Analysis](http://www.statistics4u.com/fundstat_eng/cc_lda_intro.html)
  
  
 
