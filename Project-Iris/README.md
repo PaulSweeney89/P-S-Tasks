@@ -12,7 +12,7 @@ The project is conducted under 3 main sections:
 
 - Research of the Fisher's Iris dataset, including an overview of the dataset & a brief description of any new topics or terminologies encountered within the subject matter.
 
-- Development of the python program for the import, cleaning & analysis of the dataset, including explanations of the code developed, reasons for choice of code used along with highlighting any limitations within code. 
+- Development & writing of the python program for the import, cleaning & analysis of the dataset, including explanations of the code developed, reasons for choice of code used along with highlighting any limitations within code. 
 
 - Analysis of the dataset & review of the program outputs, reporting on & summarizing any findings within the dataset & project.
 
@@ -23,15 +23,15 @@ There are over 250 varieties of the iris flower and they come in a wide range of
 
 Fisher's data set contains 3 species of the Iris plant: 
 
-	- Iris setosa 
-	- Iris virginica 
-	- Iris versicolor
-	
-![setosa](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Setosa.jpeg) 
-![versicolor](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Versicolor.jpeg)
-![virginica](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Virginica.jpeg)
+	- Iris Setosa 
+	- Iris Virginica 
+	- Iris Versicolor
+
+| Iris Setosa | Iris Virginica | Iris Versicolor |
+|----------------------------------------|----------------------------------------|----------------------------------------|
+| ![setosa](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Setosa%20-%20resized.jpeg) | ![versicolor](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Versicolor%20-%20resized.jpeg) | ![virginica](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Iris%20Virginica%20-%20resized.jpeg) |
  
-Fifty samples of each of the 3 species were taken, with 4 characteristics of the flowers measured, the species of the flower was also included as a 5th attribute within the dataset.
+50 samples of each of the 3 species were taken, with 4 characteristics of the flowers measured, the species of the flower was also included as a 5th attribute within the dataset.
 
 	(1) sepal length (cm)
 	(2) sepal width (cm)
@@ -39,7 +39,7 @@ Fifty samples of each of the 3 species were taken, with 4 characteristics of the
 	(4) pedal width (cm)
 	(5) species
  
-Therefore there is 50 samples for each of the 3 species of Iris, each with 5 attributes giving a total number of 50 x 3 x 5 = 750 data points within Fischer's dataset.
+Therefore there is 50 samples for each of the 3 species of Iris, each with 5 attributes giving a total number of 750 data points within Fischer's dataset.
 
 From the dataset Fisher developed a linear discriminant model to distinguish the 3 species from each other.
 
