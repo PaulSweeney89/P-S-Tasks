@@ -45,7 +45,7 @@ From the dataset Fisher developed a linear discriminant model to distinguish the
 
 *linear discriminant model* - is a statisical model that is developed to discriminate between or separate two or more groups of samples in order to develop a classifier.
 
-e.g Fisher analysis of the Iris dataset was able to classify or identify the Iris flower into one of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower os sample data (sepal length, sepal width, pedal length, pedal width). 
+e.g Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
 
 
 
