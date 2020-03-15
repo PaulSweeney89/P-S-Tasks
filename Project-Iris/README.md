@@ -10,7 +10,7 @@ This project forms part of the programming & scripting module for 2020, please r
 
 The project is conducted under 3 main sections:
 
-- Research of the Fisher's Iris dataset, including an overview of the dataset & a brief description of any new topics or terminologies encountered within the subject matter.
+- Research & download of the Fisher's Iris dataset, including an overview & review of the dataset & a brief description of any new topics or terminologies encountered within the subject matter.
 
 - Development & writing of the python program for the import, cleaning & analysis of the dataset, including explanations of the code developed, reasons for choice of code used along with highlighting any limitations within code. 
 
@@ -47,6 +47,52 @@ From the dataset Fisher developed a linear discriminant model to distinguish the
 
 e.g Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
 
+## Download & Review of Dataset ##
+
+The dataset has been downloaded from the University of California (UCL), Center for Machine Learning and Intelligent Systems repository website found [here](http://archive.ics.uci.edu/ml/datasets/Iris).
+
+The archive contains the following files:
+
+- Index                     (text file with files dates)
+- bezdekIris.data           (dataset with comma-separated values)
+- iris.data                 (dataset with comma-separated values)
+- iris.names                (README text file with dataset info)
+
+On review of the README text file, it notes that the dataset contains some discrepencies, identified by Steve Chadwick.
+
+> The 35th sample should be: 4.9,3.1,1.5,0.2,"Iris-setosa"
+> where the error is in the fourth feature.
+
+> The 38th sample: 4.9,3.6,1.4,0.1,"Iris-setosa"
+> where the errors are in the second and third features.
+
+To review & identify the above discrepencies a simple script *review_data.py* has been written & included as part of this project.
+
+The script was used to read & compare both *bezdekIris.data* and *iris.data* datasets, identify the known discrepencies and to determine which dataset to use as part of this project.
+
+**Review Script**
+
+- Read in both datasets *bezdekIris.data* and *iris.data* as df_1 & df_2 respectively, include missing datasets header rows - (sepal length, sepal width etc.) 
+```
+df_1 = pd.read_csv("bezdekIris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
+df_2 = pd.read_csv("iris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
+```
+- Review rows 35 & 38 (index rows 34 to 37) in both datasets for discrepencies noted in *iris.names* text file.
+```
+print(df_1.loc[34:37])
+print(df_2.loc[34:37])
+```
+- Output of rows 35 to 38 (index rows 34 to 37) & review:
+
+df_1 - *bezdekIris.data* appears to contain the corrected sample values.
+
+- Further compare datasets, using pandas concatuate function to combine df_1 & df_2, followed by the drop_duplicates(keep=False) function to remove all dublicate rows within the combined dataset.
+
+Only index rows 34 & 37 remain, therefore there are no other discrepencies between the datasets.
+
+- Following the review of the 2 datasets from the UCL archive, it was found that *bezdekIris.data* contains the correct ammended sample values and will therefore be used in this project. 
+
+ 
 
 
 
@@ -70,6 +116,10 @@ References:
 Note: Text added to images from Wiki Commons using GIMP - GNU Image Manipulation Program
 
 [Statistics4u - Linear Discriminant Analysis](http://www.statistics4u.com/fundstat_eng/cc_lda_intro.html)
+
+[Pandas Difference between Dataframes](https://kanoki.org/2019/07/04/pandas-difference-between-two-dataframes/)
+
+
  
  
 
