@@ -53,17 +53,17 @@ The dataset has been downloaded from the University of California (UCL), Center 
 
 The archive contains the following files:
 
-- Index                     (text file with files dates)
+- Index                     (text file with files contained in directory with file creation dates)
 - bezdekIris.data           (dataset with comma-separated values)
 - iris.data                 (dataset with comma-separated values)
 - iris.names                (README text file with dataset info)
 
 On review of the README text file, it notes that the dataset contains some discrepencies, identified by Steve Chadwick.
 
-> The 35th sample should be: 4.9,3.1,1.5,0.2,"Iris-setosa"
+> The 35th sample should be: 4.9, 3.1, 1.5, 0.2, "Iris-setosa"
 > where the error is in the fourth feature.
 
-> The 38th sample: 4.9,3.6,1.4,0.1,"Iris-setosa"
+> The 38th sample: 4.9, 3.6, 1.4, 0.1, "Iris-setosa"
 > where the errors are in the second and third features.
 
 To review & identify the above discrepencies a simple script *review_data.py* has been written & included as part of this project.
