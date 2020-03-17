@@ -84,9 +84,13 @@ print(df_2.loc[34:37])
 ```
 - Output of rows 35 to 38 (index rows 34 to 37) & review:
 
+![review_datasets](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20Datasets.png)
+
 df_1 - *bezdekIris.data* appears to contain the corrected sample values.
 
 - Further compare datasets, using pandas concatuate function to combine df_1 & df_2, followed by the drop_duplicates(keep=False) function to remove all dublicate rows within the combined dataset.
+
+![review_datasets_drop_dup](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20Datasets%20-%20drop_duplicates.png)
 
 Only index rows 34 & 37 remain, therefore there are no other discrepencies between the datasets.
 
