@@ -2,6 +2,8 @@
 # Programming & Scripting Project 2020
 # Using datasets downloaded from http://archive.ics.uci.edu/ml/datasets/Iris
 
+# Datasets Review
+
 import pandas as pd                         # Import pandas as pd 
 import matplotlib.pyplot as plt             # Import matplotliv.pyplot as plt
 
@@ -13,8 +15,8 @@ import matplotlib.pyplot as plt             # Import matplotliv.pyplot as plt
 # read both datasets, bezdekIris.data & iris.data.
 # insert missing header row for both datasets - sepal_length, sepal_width, petal_length, petal_width, class
  
-df_1 = pd.read_csv("bezdekIris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
-df_2 = pd.read_csv("iris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
+df_1 = pd.read_csv("datasets/bezdekIris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
+df_2 = pd.read_csv("datasets/iris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
 
 # iris.names notes discrepancies for sample 35 & 38
 # print & review rows 35 & 38 (index rows 34 to 37)
@@ -27,3 +29,6 @@ print(df_2.loc[34:37])
 # use pandas concatuate to combine df_1 & df_2 and drop_duplicates(keep=False) to remove all duplicate rows 
 
 print(pd.concat([df_1,df_2]).drop_duplicates(keep=False))
+
+# bezdekIris.data contains correct ammended sample values.
+# use bezdekIris.data in project. 

@@ -123,6 +123,8 @@ Note: Text added to images from Wiki Commons using GIMP - GNU Image Manipulation
 
 [Pandas Difference between Dataframes](https://kanoki.org/2019/07/04/pandas-difference-between-two-dataframes/)
 
+[Writing output to text file](https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python)
+
 
  
  
