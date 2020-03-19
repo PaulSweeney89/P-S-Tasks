@@ -53,7 +53,7 @@ The dataset has been downloaded from the University of California (UCL), Center 
 
 The archive contains the following files:
 
-- Index                     (text file with files contained in directory with file creation dates)
+- Index                     (text file containing the list of files within the directory along with the files creation dates)
 - bezdekIris.data           (dataset with comma-separated values)
 - iris.data                 (dataset with comma-separated values)
 - iris.names                (README text file with dataset info)
@@ -72,12 +72,18 @@ The script was used to read & compare both *bezdekIris.data* and *iris.data* dat
 
 **Review Script**
 
-- Read in both datasets *bezdekIris.data* and *iris.data* as df_1 & df_2 respectively, include missing datasets header rows - (sepal length, sepal width etc.) 
+- import pandas python library
 ```
-df_1 = pd.read_csv("bezdekIris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
-df_2 = pd.read_csv("iris.data", sep=",", names=["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
+import pandas as pd
 ```
-- Review rows 35 & 38 (index rows 34 to 37) in both datasets for discrepencies noted in *iris.names* text file.
+- Read in both datasets *bezdekIris.data* and *iris.data* as df_1 & df_2 respectively using pandas **read_csv()** function, include the missing datasets header rows - (sepal length, sepal width etc.) 
+```
+head_row= ["sepal_length", "sepal_width", "petal_length", "petal_width", "class"]
+
+df_1 = pd.read_csv("bezdekIris.data", sep=",", names=head_row)
+df_2 = pd.read_csv("iris.data", sep=",", names=head_row)
+```
+- Review rows 35 & 38 (index rows 34 to 37) in both datasets for discrepencies noted in *iris.names* text file, using pandas **loc** function to access the required rows within the dataframe.
 ```
 print(df_1.loc[34:37])
 print(df_2.loc[34:37])
@@ -88,7 +94,10 @@ print(df_2.loc[34:37])
 
 df_1 - *bezdekIris.data* appears to contain the corrected sample values.
 
-- Further compare datasets, using pandas concatuate function to combine df_1 & df_2, followed by the drop_duplicates(keep=False) function to remove all dublicate rows within the combined dataset.
+- Further compare datasets, using pandas concatuate **concat()** function to fully combine df_1 & df_2, followed by the **drop_duplicates(keep=False)** function to remove all dublicate rows within the combined dataset.
+```
+print(pd.concat([df_1,df_2]).drop_duplicates(keep=False))- [x]- [x]- [x]
+```
 
 ![review_datasets_drop_dup](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20Datasets%20-%20drop_duplicates.png)
 
@@ -96,8 +105,50 @@ Only index rows 34 & 37 remain, therefore there are no other discrepencies betwe
 
 - Following the review of the 2 datasets from the UCL archive, it was found that *bezdekIris.data* contains the correct ammended sample values and will therefore be used in this project. 
 
- 
+# Development of the Program *analysis.py*
 
+As part of the project, the 3 main tasks of the program is:
+
+1.  - [x] output a summary of each variable to a single text file.
+2.  - [ ] saves a histogram of each variable to png files.
+3.  - [ ] outputs a scatter plot of each pair of variables.
+
+1. **Summaries of Dataset Variables** 
+
+- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+- read the dataset using pandas **read_csv()** function, incuding the dataset's header row, as previously done in the *review_data.py* script
+```
+head_row = ["sepal_length", "sepal_width", "petal_length",
+            "petal_width", "class"]
+
+df = pd.read_csv("datasets/bezdekIris.data", names=head_row)
+```
+- To output a summary of each variable within the dataset & save within a text file.
+    - use python's **with** statement to **open** & automatically close a writeable 'w' text file named *summary.txt*
+    - use pandas **dataframe.describe()** method to print the dataset variables summaries to *summary.txt*
+    - in the interest of keeping the project repository clean & organised all project outputs are to be saved in the *outputs* folder.
+```
+with open('outputs/summary.txt', 'w') as f:
+    print("DATASET VARIABLES SUMMARIES:\n\n", df.describe(), file=f) 
+```
+- *summary.txt* output:
+>   DATASET VARIABLES SUMMARIES:
+
+>        sepal_length  sepal_width  petal_length  petal_width
+>   count    150.000000   150.000000    150.000000   150.000000
+>   mean       5.843333     3.057333      3.758000     1.199333
+>   std        0.828066     0.435866      1.765298     0.762238
+>   min        4.300000     2.000000      1.000000     0.100000
+>   25%        5.100000     2.800000      1.600000     0.300000
+>   50%        5.800000     3.000000      4.350000     1.300000
+>   75%        6.400000     3.300000      5.100000     1.800000
+>   max        7.900000     4.400000      6.900000     2.500000
+
+2. **Histograms of Variables**
 
 
 
