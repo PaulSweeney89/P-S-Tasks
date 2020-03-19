@@ -113,7 +113,7 @@ As part of the project, the 3 main tasks of the program is:
 2.  - [ ] saves a histogram of each variable to png files.
 3.  - [ ] outputs a scatter plot of each pair of variables.
 
-**1. Summaries of Dataset Variables** 
+**1. Summary of Dataset Variables** 
 
 - Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
 ```
@@ -139,7 +139,7 @@ with open('outputs/summary.txt', 'w') as f:
 
 ![summary](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Summary.png)
 
-2. **Histograms of Variables**
+**2. Histograms of Dataset Variables**
 
 
 
@@ -159,15 +159,13 @@ References:
 
 [Wiki Commons Flower Images](https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg)
 
-Note: Text added to images from Wiki Commons using GIMP - GNU Image Manipulation Program
-
 [Statistics4u - Linear Discriminant Analysis](http://www.statistics4u.com/fundstat_eng/cc_lda_intro.html)
 
 [Pandas Difference between Dataframes](https://kanoki.org/2019/07/04/pandas-difference-between-two-dataframes/)
 
 [Writing output to text file](https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python)
 
-
- 
+Additional Notes: 
+- Text & mark-ups added to images & screenshots using GIMP - GNU Image Manipulation Program.
  
 
