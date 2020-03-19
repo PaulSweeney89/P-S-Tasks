@@ -105,7 +105,7 @@ Only index rows 34 & 37 remain, therefore there are no other discrepencies betwe
 
 - Following the review of the 2 datasets from the UCL archive, it was found that *bezdekIris.data* contains the correct ammended sample values and will therefore be used in this project. 
 
-# Development of the Program *analysis.py*
+## Development of the Program *analysis.py* ##
 
 As part of the project, the 3 main tasks of the program is:
 
@@ -113,7 +113,7 @@ As part of the project, the 3 main tasks of the program is:
 2.  - [ ] saves a histogram of each variable to png files.
 3.  - [ ] outputs a scatter plot of each pair of variables.
 
-1. **Summaries of Dataset Variables** 
+**1. Summaries of Dataset Variables** 
 
 - Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
 ```
@@ -136,17 +136,8 @@ with open('outputs/summary.txt', 'w') as f:
     print("DATASET VARIABLES SUMMARIES:\n\n", df.describe(), file=f) 
 ```
 - *summary.txt* output:
->   DATASET VARIABLES SUMMARIES:
 
->        sepal_length  sepal_width  petal_length  petal_width
->   count    150.000000   150.000000    150.000000   150.000000
->   mean       5.843333     3.057333      3.758000     1.199333
->   std        0.828066     0.435866      1.765298     0.762238
->   min        4.300000     2.000000      1.000000     0.100000
->   25%        5.100000     2.800000      1.600000     0.300000
->   50%        5.800000     3.000000      4.350000     1.300000
->   75%        6.400000     3.300000      5.100000     1.800000
->   max        7.900000     4.400000      6.900000     2.500000
+![summary](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Summary.png)
 
 2. **Histograms of Variables**
 
