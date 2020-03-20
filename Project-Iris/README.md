@@ -66,7 +66,7 @@ On review of the README text file, it notes that the dataset contains some discr
 > The 38th sample: 4.9, 3.6, 1.4, 0.1, "Iris-setosa"
 > where the errors are in the second and third features.
 
-To review & identify the above discrepencies a simple script *review_data.py* has been written & included as part of this project.
+To review & identify the above discrepencies a simple script *review_data.py* has been written & included as part of this project, which can be found in the script folder in this reposirory. 
 
 The script was used to read & compare both *bezdekIris.data* and *iris.data* datasets, identify the known discrepencies and to determine which dataset to use as part of this project.
 
@@ -96,7 +96,7 @@ df_1 - *bezdekIris.data* appears to contain the corrected sample values.
 
 - Further compare datasets, using pandas concatuate **concat()** function to fully combine df_1 & df_2, followed by the **drop_duplicates(keep=False)** function to remove all dublicate rows within the combined dataset.
 ```
-print(pd.concat([df_1,df_2]).drop_duplicates(keep=False))- [x]- [x]- [x]
+print(pd.concat([df_1,df_2]).drop_duplicates(keep=False))
 ```
 
 ![review_datasets_drop_dup](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20Datasets%20-%20drop_duplicates.png)
@@ -109,11 +109,11 @@ Only index rows 34 & 37 remain, therefore there are no other discrepencies betwe
 
 As part of the project, the 3 main tasks of the program is:
 
-1.  - [x] output a summary of each variable to a single text file.
-2.  - [ ] saves a histogram of each variable to png files.
-3.  - [ ] outputs a scatter plot of each pair of variables.
+1.  output a summary of each variable to a single text file - [x] 
+2.  saves a histogram of each variable to png files         - [x] 
+3.  outputs a scatter plot of each pair of variables        - [ ] 
 
-1. **Summaries of Dataset Variables** 
+**1.    Summary of Dataset Variables** 
 
 - Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
 ```
@@ -148,7 +148,7 @@ with open('outputs/summary.txt', 'w') as f:
 >   75%        6.400000     3.300000      5.100000     1.800000
 >   max        7.900000     4.400000      6.900000     2.500000
 
-2. **Histograms of Variables**
+**2.    Histograms of Dataset Variables**
 
 
 
@@ -175,6 +175,8 @@ Note: Text added to images from Wiki Commons using GIMP - GNU Image Manipulation
 [Pandas Difference between Dataframes](https://kanoki.org/2019/07/04/pandas-difference-between-two-dataframes/)
 
 [Writing output to text file](https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python)
+
+[Real Python Matplotlib](https://realpython.com/python-matplotlib-guide/)
 
 
  
