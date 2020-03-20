@@ -113,11 +113,7 @@ As part of the project, the 3 main tasks of the program is:
 2.  saves a histogram of each variable to png files         - [x] 
 3.  outputs a scatter plot of each pair of variables        - [ ] 
 
-<<<<<<< HEAD
-**1.    Summary of Dataset Variables** 
-=======
 **1. Summary of Dataset Variables** 
->>>>>>> 7109c84a04c5f9f77739d2f2e399d81e1975232c
 
 - Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
 ```
@@ -143,11 +139,7 @@ with open('outputs/summary.txt', 'w') as f:
 
 ![summary](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Summary.png)
 
-<<<<<<< HEAD
-**2.    Histograms of Dataset Variables**
-=======
 **2. Histograms of Dataset Variables**
->>>>>>> 7109c84a04c5f9f77739d2f2e399d81e1975232c
 
 
 
@@ -173,14 +165,9 @@ References:
 
 [Writing output to text file](https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python)
 
-<<<<<<< HEAD
 [Real Python Matplotlib](https://realpython.com/python-matplotlib-guide/)
 
-
- 
-=======
 Additional Notes: 
 - Text & mark-ups added to images & screenshots using GIMP - GNU Image Manipulation Program.
->>>>>>> 7109c84a04c5f9f77739d2f2e399d81e1975232c
  
 
