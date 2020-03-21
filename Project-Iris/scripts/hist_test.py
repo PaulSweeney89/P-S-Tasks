@@ -80,11 +80,10 @@ plt.show()
 #plt.savefig("add_outputs/histogram_by_flower_petal_width")
 
 colour = ['r', 'g', 'b', 'c']                                                   
-n = 0                                                                           
-var = head_row[n]  
+n = 0                                                                             
                                                                                  
 for n in range(0, 4):                                                            
-                                                                                
+    var = head_row[n]                                                                         
     plt.figure(n)                                                               
     plt.hist(df[var], bins=7, facecolor=colour[n], ec="black")                  
     plt.xlabel(var)                                                             

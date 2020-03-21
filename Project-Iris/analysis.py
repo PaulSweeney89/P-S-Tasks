@@ -19,10 +19,10 @@ with open('outputs/summary.txt', 'w') as f:                                     
                                                                            
 colour = ['r', 'g', 'b', 'c']                                                   # List of colours to be used for plotting different histograms.
 n = 0                                                                           # Initialize for loop with n = 0
-var = head_row[n]  
-                                                                                 
-for n in range(0, 4):                                                            
-                                                                                # For loop to iternate through variables in head_row, 4No. variables (0 to 3)
+                                                                                  
+for n in range(0, 4): 
+                                                           
+    var = head_row[n]                                                           # For loop to iternate through variables in head_row, 4No. variables (0 to 3)
     plt.figure(n)                                                               # plotting a histogram for each variable, figures(0 - 3)
     plt.hist(df[var], bins=7, facecolor=colour[n], ec="black")                  # setting number of bins, applying different colours & a black edge colour to bins
     plt.xlabel(var)                                                             # label x-axis (variable name)
@@ -35,8 +35,8 @@ for n in range(0, 4):
 # all pairs of variables on individual subplots plotted
 # on a 1 single figure
 
-sl = df["Sepal Length"]                                                         # individualizing each of the dataset's columns
-sw = df["Sepal Width"]                                                          # for ease of reading & writing code
+sl = df["Sepal Length"]                                                         # assigning each of the dataset's variables or column arrays a name
+sw = df["Sepal Width"]                                                          # for ease of reading & writing of code
 pl = df["Petal Length"]
 pw = df["Petal Width"]
                                                                                     
