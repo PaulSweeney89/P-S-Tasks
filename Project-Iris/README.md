@@ -1,12 +1,12 @@
 # Project Iris #
-----------------
-
+- - - - - - - - - 
 **Programming & Scripting Project 2020**
 
 *Research of the Fisher's Iris dataset and the developement of a program to read and analyize the dataset.*
 
+- - - - - - - - -
 ## Introduction ##
-==================
+- - - - - - - - -
 
 This project forms part of the programming & scripting module for 2020, please refer to the [project.pdf](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/project.pdf) document included in this repository for the full project outline & instructions.
 
@@ -18,8 +18,9 @@ The project is conducted under 3 main sections:
 
 - Analysis of the dataset & review of the program outputs, reporting & summarizing any findings within the dataset & project.
 
+- - - - - - - - -
 ## Research ##
-==============
+- - - - - - - - -
 
 The Iris flower dataset or Fisher's Iris dataset was introduced by the British statistician and biologist Ronald Fisher in 1936.
 There are over 250 varieties of the iris flower and they come in a wide range of colours, the greek word iris means rainbow.
@@ -50,8 +51,9 @@ From the dataset Fisher developed a linear discriminant model to distinguish the
 
 e.g Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
 
+- - - - - - - - -
 ## Download & Review of Dataset ##
-==================================
+- - - - - - - - -
 
 The dataset has been downloaded from the University of California (UCL), Center for Machine Learning and Intelligent Systems repository website found [here](http://archive.ics.uci.edu/ml/datasets/Iris).
 
@@ -109,8 +111,9 @@ Only index rows 34 & 37 remain, therefore there are no other discrepencies betwe
 
 - Following the review of the 2 datasets from the UCL archive, it was found that *bezdekIris.data* contains the correct ammended sample values and will therefore be used in this project. 
 
+----------------------------------------------------------------------------------------------------------------------------
 ## Development of the Program *analysis.py* ##
-==============================================
+----------------------------------------------------------------------------------------------------------------------------
 
 As part of the project, the 3 main tasks of the program is:
 
@@ -242,8 +245,9 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
 
 **Note:** during the undertaking of this project and to aid with the main work of this project, additional scripts and plots have been produced for testing different code and experiementing with different plots and outputs. These files can be found in the *scripts* & *add_outputs* folders.
 
+- - - - - - - - -
 ## Analysis & Review of Program Outputs ##
-==========================================
+- - - - - - - - -
 
 
 References:
