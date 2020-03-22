@@ -123,10 +123,12 @@ As part of the project, the 3 main tasks of the program is:
 
 **1. Summary of Dataset Variables** 
 
-- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
+- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy's arange function aswell as matplotlib.ticker module were also used to configuring & formatting the axes ticks for the histograms.  
 ```
+from numpy import arange
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 ```
 - Read the dataset using pandas **read_csv()** function, incuding the dataset's header row, as previously done in the *review_data.py* script
 ```
@@ -149,23 +151,38 @@ with open('outputs/summary.txt', 'w') as f:
 
 **2. Histograms of Dataset Variables**
 
+- Each of the dataset's variables or column arrays have been assigned a name, to help simipfy the reading & writing of the code.
+```
+sl = df["Sepal Length"]
+sw = df["Sepal Width"]
+pl = df["Petal Length"]
+pw = df["Petal Width"]
+```
 - To produce the histograms for the 4no. variables within the dataset, a **for** loop has been written to complete the task, keeping the code short, concise & hopefully clear.
 ```
 colour = ['r', 'g', 'b', 'c']
 n = 0
+n_bins = 7 
 ```
 - The list *colour* will be used within the for loop to produce a different colour histogram for each of the dataset variables, "r" red, "g" green, "b" blue & "c" cyan.
 - n = 0, the starting value for n in the **for** loop.
+- The number of bins (n_bins) to be used in all histograms has been set to 7, following the review of a number histograms with different options, 7 bins appear to give a good distribution shape for the histograms. 
 ``` 
 for n in range(0, 4): 
                                                            
-    var = head_row[n]
-    plt.figure(n)
-    plt.hist(df[var], bins=7, facecolor=colour[n], ec="black")
-    plt.xlabel(var)
-    plt.ylabel("Sample Freq")
-    plt.title("Histogram of " + var)
-    plt.savefig(fname="outputs/" + var + " histogram") 
+    var = head_row[n]                                                           
+    plt.figure(n)                                                               
+    plt.hist(df[var], bins=n_bins, facecolor=colour[n], ec="black")             
+
+    start = min(df[var])                                                        
+    end = max(df[var])                                                         
+    step = (end - start) / n_bins                                                
+    plt.xticks(arange(start, (end + step) ,step))                                          
+                                                      
+    plt.xlabel(var)                                                             
+    plt.ylabel("Sample Freq")                                                   
+    plt.title("Histogram of " + var)                                                                                                                         
+    plt.savefig(fname="outputs/" + var + " histogram")                           
     n = n + 1
 ```
 - The **for** loop will complete 4no. iterations - (n=0, n=1, n=2, n=3), 1no. iteration for each of the 4 variables in the dataset.
@@ -173,6 +190,7 @@ for n in range(0, 4):
     - Retrieve the name of the variable from the *head_row* list, e.g var = head_row[n=1] = "Sepal Width", which will also be used to input the histogram's array, histograms label, histogram title and the output file name. 
     - Produce a figure(n=0 to n=3, 4no.) for plotting a individual historgram for each variable.
     - Plot a historgram with the dataframe's variable column as an array, with the number of histogram bins being set to 7, the colour of the histogram being set by the colour list and the edgecolour set to black to improve the visual display of the histograms.
+    - plot the histogram bin range values or xtick values, starting with the minimum variable value & finishing with the max vaiable value and all the bin range values inbetween which are determined by the width of the bins or the number of bins used for the histogram. The **numpy.arange()** function was used to plot the xtick values.
     - Plot the labels for the histograms, xlabel = variable name & ylabel = sample frequency.
     - Plot the title of the histogram with the individual variable name.
     - Save the histogram as a .png file in the outputs folder of the repository with the filename including the variable name.
@@ -190,13 +208,6 @@ for n in range(0, 4):
     6. Petal Lenth (PL) v Petal Width (PW)
 
 - Matplotlib's **.subplots()** method has been used to create a number of subplots on a single figure, providing a clear and compact plot for reviewing all the scatter plots.
-- Each of the dataset's variables or column arrays have been assigned a name, to help simipfy the reading & writing of the code.
-```
-sl = df["Sepal Length"]
-sw = df["Sepal Width"]
-pl = df["Petal Length"]
-pw = df["Petal Width"]
-```
 - Creating a single figure, *f*, with 6no. subplots or axes, *ax1*, *ax2*...etc. The figure will consist of 3 rows of 2 axes or subplots. 
 ```
 f, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2)
