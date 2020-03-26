@@ -115,11 +115,11 @@ Only index rows 34 & 37 remain, therefore there are no other discrepencies betwe
 ## Development of the Program *analysis.py* ##
 ----------------------------------------------------------------------------------------------------------------------------
 
-As part of the project, the 3 main tasks of the program is:
+As part of the project, the 3 main tasks of the program is to:
 
 1.  - [x] output a summary of each variable to a single text file 
-2.  - [x] saves a histogram of each variable to png files
-3.  - [x] outputs a scatter plot of each pair of variables 
+2.  - [x] save a histogram of each variable to png files
+3.  - [x] output a scatter plot of each pair of variables 
 
 **1. Summary of Dataset Variables** 
 
@@ -240,12 +240,12 @@ plt.savefig(fname="outputs/Combined Histograms")
 
 - To produce the scatter plots for all pairs of the dataset variables, a total number of 6 scatter plots will be required:
     
-    1. Sepal Length (SL) v Sepal Width (SW)
-    2. Sepal Length (SL) v Petal Length (PL)
-    3. Sepal Length (SL) v Petal Width (PW) 
-    4. Sepal Width (SW) v Petal Length (PL)
-    5. Sepal Width (SW) v Petal Width (PW)
-    6. Petal Lenth (PL) v Petal Width (PW)
+1. Sepal Length (SL) v Sepal Width (SW)
+2. Sepal Length (SL) v Petal Length (PL)
+3. Sepal Length (SL) v Petal Width (PW) 
+4. Sepal Width (SW) v Petal Length (PL)
+5. Sepal Width (SW) v Petal Width (PW)
+6. Petal Lenth (PL) v Petal Width (PW)
 
 - Matplotlib's **.subplots()** method has been used to create a number of subplots on a single figure, providing a clear and compact plot for reviewing all the scatter plots.
 - Creating a single figure, *f*, with 6no. subplots or axes, *ax1*, *ax2*...etc. The figure will consist of 3 rows of 2 axes or subplots. 
@@ -295,7 +295,7 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
     - Scatter Plots - Pairs of Variables.png
     - Combined Scatter Plots - Pairs of Variables.png
 
-**Note:** during the undertaking of this project and to aid with the main work of this project, additional scripts and plots have been produced for testing different code and experiementing with different plots and outputs. These files can be found in the *scripts* & *add_outputs* folders.
+**Note:** during the undertaking of this project and to aid with the development of the program, additional scripts and plots have been produced. These files can be found in the *scripts* & *add_outputs* folders.
 
 - - - - - - - - -
 ## Analysis & Review of Program Outputs ##
