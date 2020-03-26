@@ -49,7 +49,7 @@ From the dataset Fisher developed a linear discriminant model to distinguish the
 
 *linear discriminant model* - is a statisical model that is developed to discriminate between or separate two or more groups of samples in order to develop a classifier.
 
-e.g Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
+Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
 
 - - - - - - - - -
 ## Download & Review of Dataset ##
@@ -123,7 +123,7 @@ As part of the project, the 3 main tasks of the program is:
 
 **1. Summary of Dataset Variables** 
 
-- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy's arange function aswell as matplotlib.ticker module were also used to configuring & formatting the axes ticks for the histograms.  
+- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy's arange function aswell as matplotlib.ticker module were also used for configuring & formatting the axes ticks of the histograms.  
 ```
 from numpy import arange
 import pandas as pd
@@ -140,7 +140,7 @@ df = pd.read_csv("datasets/bezdekIris.data", names=head_row)
 - To output a summary of each variable within the dataset & save within a text file.
     - use python's **with** statement to **open** & automatically close a writeable 'w' text file named *summary.txt*
     - use pandas **dataframe.describe()** method to print the dataset variables summaries to *summary.txt*
-    - in the interest of keeping the project repository clean & organised all project outputs are to be saved in the *outputs* folder.
+    - in the interest of keeping the project repository clean & organised all project outputs are saved in the *outputs* folder.
 ```
 with open('outputs/summary.txt', 'w') as f:
     print("DATASET VARIABLES SUMMARIES:\n\n", df.describe(), file=f) 
@@ -151,7 +151,7 @@ with open('outputs/summary.txt', 'w') as f:
 
 **2. Histograms of Dataset Variables**
 
-- Each of the dataset's variables or column arrays have been assigned a name, to help simipfy the reading & writing of the code.
+- Each of the dataset's variables or column arrays have been assigned a name, to help simipfy the reading & writing of the code & project program.
 ```
 sl = df["Sepal Length"]
 sw = df["Sepal Width"]
@@ -166,7 +166,7 @@ n_bins = 7
 ```
 - The list *colour* will be used within the for loop to produce a different colour histogram for each of the dataset variables, "r" red, "g" green, "b" blue & "c" cyan.
 - n = 0, the starting value for n in the **for** loop.
-- The number of bins (n_bins) to be used in all histograms has been set to 7, following the review of a number histograms with different options, 7 bins appear to give a good distribution shape for the histograms. 
+- The number of bins (n_bins) to be used in all histograms has been set to 7, following the review of a number histograms with different options, 7 bins appear to display practical distribution shape for the histograms. 
 ``` 
 for n in range(0, 4): 
                                                            
@@ -195,6 +195,46 @@ for n in range(0, 4):
     - Plot the title of the histogram with the individual variable name.
     - Save the histogram as a .png file in the outputs folder of the repository with the filename including the variable name.
 - n = n+1 to continue to the next step of **for** loop iteration. 
+
+**Plotting Combined Histograms on Single Figure**
+
+- An additional useful plot displaying the 4 No. variable histograms combined together on a single figure has also been included in the *outputs* folder.
+- Similarlly to the code for producing the scatter plots below, Matplotlib's **.subplots()** method has been used to create a number of subplots on a single figure.
+- Creating a single figure, *fig*, with 4no. subplots or axes, *ax1*, *ax2*...etc. The figure will consist of 2 rows of 2 axes or subplots. 
+*sharey=True*, y-axis to be shared between plots on each row, i.e ax1 & ax3 and ax2 & ax4 will use the same y-axis, which will help produce clear & legible plots and will also accomodate ease of comparision between the histograms or variables.
+```
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)
+```
+- Specifying the variable sl (sepal length) for the first histogram plot on axes ax1 of the figure. Number of bins for the histogram set to the previously assigned value, n_bins = 7. edge colour set to black to help distinguish between the bins of the histogram.
+- Setting the label of the y-axis of ax1 which is share with ax3. 
+```
+ax1.hist(sl, bins=n_bins, facecolor='blue', ec="black",                  
+           label="Sepal Length (cm)")
+ax1.set(ylabel="Percentage of Samples")
+```
+- As from the histograms above, plotting or setting the histogram bin range values or xtick values.
+```
+start = min(sl)                                                                 
+end = max(sl)                                                                   
+step = (end - start) / n_bins                                                    
+ax1.set_xticks(arange(start, (end + step) ,step)) 
+```
+- In addition to displaying the xtick or bin ranges values on the x-axis of the subplots, another very useful and practical application is to use the matplotlib.ticker (imported as mtick) module to format the histogram axes ticks. 
+In this incidence using the **PercentFormatter()** to set the y-axis and histogram sample count values as a percentage of the total sample counts, which helps improve the insights into the dataset from a quick glance at the histograms.      
+```
+ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
+```
+- Applying a legend to axes ax1, to help distinguish between the 4no. variable histograms.
+```
+ax1.legend()
+```
+- The above configuring of ax1, is similarly repeated for each of the axes or subplots, *ax2*, *ax3*...etc.
+- matplotlib **tight_layout()** to automatically adjust the subplot parameters so the subplots fits witin the figure area
+- Save the histogram as a .png file in the outputs folder of the repository
+```
+plt.tight_layout()                                                              
+plt.savefig(fname="outputs/Combined Histograms") 
+```
 
 **3. Scatter Plots of Pairs of Dataset Variables**
 
@@ -246,11 +286,12 @@ plt.title("Combined Scatter Plots - Pairs of Variables")
 
 plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables") 
 ```
-- As part of this project's requirements, a total number of 6 plots have been produced, all saved as the default .png file in the *outputs* folder.
+- As part of this project's requirements, a total number of 7 plots have been produced, all saved as the default .png file in the *outputs* folder.
     - Sepal Length histogram.png
     - Sepal Width histogram.png
     - Petal Length histogram.png
     - Petal Width histogram.png
+    - Combined Histograms.png
     - Scatter Plots - Pairs of Variables.png
     - Combined Scatter Plots - Pairs of Variables.png
 
