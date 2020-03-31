@@ -104,7 +104,7 @@ print("dataset 1 - missing values", file=f)
 print(df_1.isnull().sum(), file=f)
 ```
 
-![review_datasets](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/ )
+![review_datasets](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20null%20values.png)
 
 - Review rows 35 & 38 (index rows 34 to 37) in both datasets for discrepencies noted in *iris.names* text file, using pandas **loc** function to access the required rows within the dataframe, written to text file.
 ```
