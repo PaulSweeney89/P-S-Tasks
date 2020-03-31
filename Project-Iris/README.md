@@ -89,10 +89,27 @@ head_row= ["sepal_length", "sepal_width", "petal_length", "petal_width", "class"
 df_1 = pd.read_csv("bezdekIris.data", sep=",", names=head_row)
 df_2 = pd.read_csv("iris.data", sep=",", names=head_row)
 ```
-- Review rows 35 & 38 (index rows 34 to 37) in both datasets for discrepencies noted in *iris.names* text file, using pandas **loc** function to access the required rows within the dataframe.
+- All outputs of the review script written to a text file *review_output.txt* in the *add_outputs* folder.
 ```
-print(df_1.loc[34:37])
-print(df_2.loc[34:37])
+f = open("add_outputs/review_output.txt", "w+")
+```
+- Dataset info for df_1 & similar for df_2, print heading & write output to text file.
+```
+print("dataset 1 (bezdekIris.data) info output:", file=f)
+df_1.info(buf=f)
+```
+- Check for any null or missing values within the datasets, using the **isnull()** function and **sum()** function to sum the number of missing values per dataset columns, print heading & write to text file. 
+```
+print("dataset 1 - missing values", file=f)
+print(df_1.isnull().sum(), file=f)
+```
+
+![review_datasets](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/ )
+
+- Review rows 35 & 38 (index rows 34 to 37) in both datasets for discrepencies noted in *iris.names* text file, using pandas **loc** function to access the required rows within the dataframe, written to text file.
+```
+print(df_1.loc[34:37], file=f)
+print(df_2.loc[34:37], file=f)
 ```
 - Output of rows 35 to 38 (index rows 34 to 37) & review:
 
@@ -100,16 +117,16 @@ print(df_2.loc[34:37])
 
 df_1 - *bezdekIris.data* appears to contain the corrected sample values.
 
-- Further compare datasets, using pandas concatuate **concat()** function to fully combine df_1 & df_2, followed by the **drop_duplicates(keep=False)** function to remove all dublicate rows within the combined dataset.
+- Further compare datasets, using pandas concatuate **concat()** function to fully combine df_1 & df_2, followed by the **drop_duplicates(keep=False)** function to remove all dublicate rows within the combined dataset, written to text file.
 ```
-print(pd.concat([df_1,df_2]).drop_duplicates(keep=False))
+print(pd.concat([df_1,df_2]).drop_duplicates(keep=False), file=f)
 ```
 
 ![review_datasets_drop_dup](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20Datasets%20-%20drop_duplicates.png)
 
 Only index rows 34 & 37 remain, therefore there are no other discrepencies between the datasets.
 
-- Following the review of the 2 datasets from the UCL archive, it was found that *bezdekIris.data* contains the correct ammended sample values and will therefore be used in this project. 
+- Following the review of the 2 datasets from the UCL archive, it was found that, both datasets contain no missing values and that *bezdekIris.data* contains the correct ammended sample values and will therefore be used in this project. 
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Development of the Program *analysis.py* ##

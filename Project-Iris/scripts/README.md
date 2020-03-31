@@ -1,4 +1,4 @@
-## Additional Scripts & Graph Outputs ##
+## Additional Scripts & Outputs ##
 
 **additional scripts, test code & outputs produced during P&S Project 2020**
 

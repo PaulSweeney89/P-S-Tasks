@@ -56,7 +56,6 @@ plt.scatter(ver["petal_length"], ver["petal_width"], marker='+', c='c', alpha=0.
 plt.scatter(ver["sepal_width"], ver["petal_width"], marker='+', c='m', alpha=0.6)
 
 plt.legend
-
 #plt.show()
 
 # scatter plots subplots
@@ -82,5 +81,19 @@ ax5.legend(fontsize="x-small", markerscale=2, edgecolor="black")
 ax6.scatter(pl, pw, marker='.', c='y', label="PL v PW")
 ax6.legend(fontsize="x-small", markerscale=2, edgecolor="black")
 
+
+
+# scatter plots grouped by flower class
+plt.figure(4)
+
+seto = plt.scatter(seto["petal_length"], seto["petal_width"], marker='o', c='b') 
+
+vir = plt.scatter(vir["petal_length"], vir["petal_width"], marker='o', c='g') 
+
+ver = plt.scatter(ver["petal_length"], ver["petal_width"], marker='o', c='r') 
+
+plt.legend((seto, vir, ver),("Iris Setosa", "Iris Virginica", "Iris Versicolor"))
+plt.savefig("add_outputs/Scatter_PLvPW")
+plt.title("Petal Length vs Petal Width")
 plt.show()
 
