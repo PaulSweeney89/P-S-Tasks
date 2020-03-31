@@ -220,7 +220,7 @@ step = (end - start) / n_bins
 ax1.set_xticks(arange(start, (end + step) ,step)) 
 ```
 - In addition to displaying the xtick or bin ranges values on the x-axis of the subplots, another very useful and practical application is to use the matplotlib.ticker (imported as mtick) module to format the histogram axes ticks. 
-In this incidence using the **PercentFormatter()** to set the y-axis and histogram sample count values as a percentage of the total sample counts, which helps improve the insights into the dataset from a quick glance at the histograms.      
+In this incidence using the **PercentFormatter()** to set the y-axis and histogram sample count values as a percentage of the total sample counts, which helps improve the insights into the dataset and comparisions between the histograms.      
 ```
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
 ```
@@ -295,7 +295,7 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
     - Scatter Plots - Pairs of Variables.png
     - Combined Scatter Plots - Pairs of Variables.png
 
-**Note:** during the undertaking of this project and to aid with the development of the program, additional scripts and plots have been produced. These files can be found in the *scripts* & *add_outputs* folders.
+**Note:** during the undertaking of this project and to aid with the development of the program, additional scripts and plots have been produced, these files can be found in the *scripts* folder and the *add_outputs* folder.
 
 - - - - - - - - -
 ## Analysis & Review of Program Outputs ##
