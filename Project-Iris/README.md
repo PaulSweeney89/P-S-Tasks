@@ -141,9 +141,9 @@ As part of the project, the 3 main tasks of the program is to:
 
 **1. Summary of Dataset Variables** 
 
-- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy's arange function aswell as matplotlib.ticker module were also used for configuring & formatting the axes ticks of the histograms.  
+- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy was imported to use np.arange() & np.ones() functions aswell as matplotlib.ticker module was also used for configuring & formatting the axes ticks of the histograms.  
 ```
-from numpy import arange
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
@@ -224,10 +224,12 @@ for n in range(0, 4):
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)
 ```
 - Specifying the variable sl (sepal length) for the first histogram plot on axes ax1 of the figure. Number of bins for the histogram set to the previously assigned value, n_bins = 7. edge colour set to black to help distinguish between the bins of the histogram.
+- The bin count values of the histogram were weighted so the results are displayed as a precentage of the total sample number rather than showing the sample number. 
 - Setting the label of the y-axis of ax1 which is share with ax3. 
 ```
-ax1.hist(sl, bins=n_bins, facecolor='blue', ec="black",                  
-           label="Sepal Length (cm)")
+ax1.hist(sl, weights=np.ones(len(sl)) / len(sl),                                                                  
+            bins=n_bins, facecolor='blue', ec="black",                          
+            label="Sepal Length (cm)")
 ax1.set(ylabel="Percentage of Samples")
 ```
 - As from the histograms above, plotting or setting the histogram bin range values or xtick values.
@@ -238,7 +240,7 @@ step = (end - start) / n_bins
 ax1.set_xticks(arange(start, (end + step) ,step)) 
 ```
 - In addition to displaying the xtick or bin ranges values on the x-axis of the subplots, another very useful and practical application is to use the matplotlib.ticker (imported as mtick) module to format the histogram axes ticks. 
-In this incidence using the **PercentFormatter()** to set the y-axis and histogram sample count values as a percentage of the total sample counts, which helps improve the insights into the dataset and comparisions between the histograms.      
+In this incidence using the **PercentFormatter()** to with the weighted count values sets the y-axis and histogram sample counts as a percentage of the total sample counts, which helps improve the insights into the dataset and comparisions between the histograms.      
 ```
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
 ```
@@ -344,6 +346,8 @@ References:
 [Writing output to text file](https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python)
 
 [Real Python Matplotlib](https://realpython.com/python-matplotlib-guide/)
+
+[Histogram Y-axis as Percentage](https://stackoverflow.com/questions/51473993/plot-an-histogram-with-y-axis-as-percentage-using-funcformatter)
 
 **Additional Notes:** 
 - Text & mark-ups added to images & screenshots using GIMP - GNU Image Manipulation Program.
