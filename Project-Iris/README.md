@@ -22,7 +22,7 @@ The project is conducted under 3 main sections:
 ## Research ##
 - - - - - - - - -
 
-The Iris flower dataset or Fisher's Iris dataset was introduced by the British statistician and biologist Ronald Fisher in 1936.
+The Iris flower dataset or Fisher's Iris dataset was introduced by the British statistician and biologist Ronald Fisher in 1936. The dataset is also known Anderson's Iris data set, as it was originally collected by the American botanist, Edgar Anderson. 
 There are over 250 varieties of the iris flower and they come in a wide range of colours, the greek word iris means rainbow.
 
 Fisher's data set contains 3 species of the Iris plant: 
@@ -43,13 +43,13 @@ Fisher's data set contains 3 species of the Iris plant:
 4. pedal width (cm)
 5. species
  
-Therefore there is 50 samples for each of the 3 species of Iris, each with 5 attributes giving a total number of 750 data points within Fischer's dataset.
+Therefore there is 50 samples for each of the 3 species of Iris, with 5 attributes giving a total number of 750 data points within Fischer's dataset.
 
 From the dataset Fisher developed a linear discriminant model to distinguish the 3 species from each other.
 
 *linear discriminant model* - is a statisical model that is developed to discriminate between or separate two or more groups of samples in order to develop a classifier.
 
-Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
+Fisher's analysis of the Iris dataset was able to group or classify the samples into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
 
 - - - - - - - - -
 ## Download & Review of Dataset ##
@@ -318,6 +318,17 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
 - - - - - - - - -
 ## Analysis & Review of Program Outputs ##
 - - - - - - - - -
+- Review of the iris dataset summary, shows that the sepal lengths & sepal widths of the plant are larger than the petal lengths and widths.
+- The mean sepal length is approx 1.5 times longer than the mean petal length.
+- The mean sepal width is approx 2.5 times wider than the mean petal width.
+- This would be as expected as the sepal of a flower forms the protective encasing layer of a flower in bud, and is the first layers of a flower to open during bloom.
+
+![summary](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Summary.png)
+
+- Review of the histograms:
+- 
+
+![histograms combined](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/outputs/Combined%20Histograms.png)
 
 
 References:
