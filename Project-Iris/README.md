@@ -49,7 +49,7 @@ From the dataset Fisher developed a linear discriminant model to distinguish the
 
 *linear discriminant model* - is a statisical model that is developed to discriminate between or separate two or more groups of samples in order to develop a classifier.
 
-e.g Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
+Fisher's analysis of the Iris dataset was able to classify the Iris flowers into 1 of the 3 species (Iris Setosa, Iris Versicolor, Iris Virginica) based on the observed features of the flower from the sample data (sepal length, sepal width, pedal length, pedal width). 
 
 - - - - - - - - -
 ## Download & Review of Dataset ##
@@ -132,18 +132,20 @@ Only index rows 34 & 37 remain, therefore there are no other discrepencies betwe
 ## Development of the Program *analysis.py* ##
 ----------------------------------------------------------------------------------------------------------------------------
 
-As part of the project, the 3 main tasks of the program is:
+As part of the project, the 3 main tasks of the program is to:
 
 1.  - [x] output a summary of each variable to a single text file 
-2.  - [x] saves a histogram of each variable to png files
-3.  - [x] outputs a scatter plot of each pair of variables 
+2.  - [x] save a histogram of each variable to png files
+3.  - [x] output a scatter plot of each pair of variables 
 
 **1. Summary of Dataset Variables** 
 
-- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset.
+- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy's arange function aswell as matplotlib.ticker module were also used for configuring & formatting the axes ticks of the histograms.  
 ```
+from numpy import arange
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
 ```
 - Read the dataset using pandas **read_csv()** function, incuding the dataset's header row, as previously done in the *review_data.py* script
 ```
@@ -155,7 +157,7 @@ df = pd.read_csv("datasets/bezdekIris.data", names=head_row)
 - To output a summary of each variable within the dataset & save within a text file.
     - use python's **with** statement to **open** & automatically close a writeable 'w' text file named *summary.txt*
     - use pandas **dataframe.describe()** method to print the dataset variables summaries to *summary.txt*
-    - in the interest of keeping the project repository clean & organised all project outputs are to be saved in the *outputs* folder.
+    - in the interest of keeping the project repository clean & organised all project outputs are saved in the *outputs* folder.
 ```
 with open('outputs/summary.txt', 'w') as f:
     print("DATASET VARIABLES SUMMARIES:\n\n", df.describe(), file=f) 
@@ -166,23 +168,38 @@ with open('outputs/summary.txt', 'w') as f:
 
 **2. Histograms of Dataset Variables**
 
+- Each of the dataset's variables or column arrays have been assigned a name, to help simipfy the reading & writing of the code & project program.
+```
+sl = df["Sepal Length"]
+sw = df["Sepal Width"]
+pl = df["Petal Length"]
+pw = df["Petal Width"]
+```
 - To produce the histograms for the 4no. variables within the dataset, a **for** loop has been written to complete the task, keeping the code short, concise & hopefully clear.
 ```
 colour = ['r', 'g', 'b', 'c']
 n = 0
+n_bins = 7 
 ```
 - The list *colour* will be used within the for loop to produce a different colour histogram for each of the dataset variables, "r" red, "g" green, "b" blue & "c" cyan.
 - n = 0, the starting value for n in the **for** loop.
+- The number of bins (n_bins) to be used in all histograms has been set to 7, following the review of a number histograms with different options, 7 bins appear to display practical distribution shape for the histograms. 
 ``` 
 for n in range(0, 4): 
                                                            
-    var = head_row[n]
-    plt.figure(n)
-    plt.hist(df[var], bins=7, facecolor=colour[n], ec="black")
-    plt.xlabel(var)
-    plt.ylabel("Sample Freq")
-    plt.title("Histogram of " + var)
-    plt.savefig(fname="outputs/" + var + " histogram") 
+    var = head_row[n]                                                           
+    plt.figure(n)                                                               
+    plt.hist(df[var], bins=n_bins, facecolor=colour[n], ec="black")             
+
+    start = min(df[var])                                                        
+    end = max(df[var])                                                         
+    step = (end - start) / n_bins                                                
+    plt.xticks(arange(start, (end + step) ,step))                                          
+                                                      
+    plt.xlabel(var)                                                             
+    plt.ylabel("Sample Freq")                                                   
+    plt.title("Histogram of " + var)                                                                                                                         
+    plt.savefig(fname="outputs/" + var + " histogram")                           
     n = n + 1
 ```
 - The **for** loop will complete 4no. iterations - (n=0, n=1, n=2, n=3), 1no. iteration for each of the 4 variables in the dataset.
@@ -190,30 +207,64 @@ for n in range(0, 4):
     - Retrieve the name of the variable from the *head_row* list, e.g var = head_row[n=1] = "Sepal Width", which will also be used to input the histogram's array, histograms label, histogram title and the output file name. 
     - Produce a figure(n=0 to n=3, 4no.) for plotting a individual historgram for each variable.
     - Plot a historgram with the dataframe's variable column as an array, with the number of histogram bins being set to 7, the colour of the histogram being set by the colour list and the edgecolour set to black to improve the visual display of the histograms.
+    - plot the histogram bin range values or xtick values, starting with the minimum variable value & finishing with the max vaiable value and all the bin range values inbetween which are determined by the width of the bins or the number of bins used for the histogram. The **numpy.arange()** function was used to plot the xtick values.
     - Plot the labels for the histograms, xlabel = variable name & ylabel = sample frequency.
     - Plot the title of the histogram with the individual variable name.
     - Save the histogram as a .png file in the outputs folder of the repository with the filename including the variable name.
 - n = n+1 to continue to the next step of **for** loop iteration. 
 
+**Plotting Combined Histograms on Single Figure**
+
+- An additional useful plot displaying the 4 No. variable histograms combined together on a single figure has also been included in the *outputs* folder.
+- Similarlly to the code for producing the scatter plots below, Matplotlib's **.subplots()** method has been used to create a number of subplots on a single figure.
+- Creating a single figure, *fig*, with 4no. subplots or axes, *ax1*, *ax2*...etc. The figure will consist of 2 rows of 2 axes or subplots. 
+*sharey=True*, y-axis to be shared between plots on each row, i.e ax1 & ax3 and ax2 & ax4 will use the same y-axis, which will help produce clear & legible plots and will also accomodate ease of comparision between the histograms or variables.
+```
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)
+```
+- Specifying the variable sl (sepal length) for the first histogram plot on axes ax1 of the figure. Number of bins for the histogram set to the previously assigned value, n_bins = 7. edge colour set to black to help distinguish between the bins of the histogram.
+- Setting the label of the y-axis of ax1 which is share with ax3. 
+```
+ax1.hist(sl, bins=n_bins, facecolor='blue', ec="black",                  
+           label="Sepal Length (cm)")
+ax1.set(ylabel="Percentage of Samples")
+```
+- As from the histograms above, plotting or setting the histogram bin range values or xtick values.
+```
+start = min(sl)                                                                 
+end = max(sl)                                                                   
+step = (end - start) / n_bins                                                    
+ax1.set_xticks(arange(start, (end + step) ,step)) 
+```
+- In addition to displaying the xtick or bin ranges values on the x-axis of the subplots, another very useful and practical application is to use the matplotlib.ticker (imported as mtick) module to format the histogram axes ticks. 
+In this incidence using the **PercentFormatter()** to set the y-axis and histogram sample count values as a percentage of the total sample counts, which helps improve the insights into the dataset and comparisions between the histograms.      
+```
+ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
+```
+- Applying a legend to axes ax1, to help distinguish between the 4no. variable histograms.
+```
+ax1.legend()
+```
+- The above configuring of ax1, is similarly repeated for each of the axes or subplots, *ax2*, *ax3*...etc.
+- matplotlib **tight_layout()** to automatically adjust the subplot parameters so the subplots fits witin the figure area
+- Save the histogram as a .png file in the outputs folder of the repository
+```
+plt.tight_layout()                                                              
+plt.savefig(fname="outputs/Combined Histograms") 
+```
+
 **3. Scatter Plots of Pairs of Dataset Variables**
 
 - To produce the scatter plots for all pairs of the dataset variables, a total number of 6 scatter plots will be required:
     
-    1. Sepal Length (SL) v Sepal Width (SW)
-    2. Sepal Length (SL) v Petal Length (PL)
-    3. Sepal Length (SL) v Petal Width (PW) 
-    4. Sepal Width (SW) v Petal Length (PL)
-    5. Sepal Width (SW) v Petal Width (PW)
-    6. Petal Lenth (PL) v Petal Width (PW)
+1. Sepal Length (SL) v Sepal Width (SW)
+2. Sepal Length (SL) v Petal Length (PL)
+3. Sepal Length (SL) v Petal Width (PW) 
+4. Sepal Width (SW) v Petal Length (PL)
+5. Sepal Width (SW) v Petal Width (PW)
+6. Petal Lenth (PL) v Petal Width (PW)
 
 - Matplotlib's **.subplots()** method has been used to create a number of subplots on a single figure, providing a clear and compact plot for reviewing all the scatter plots.
-- Each of the dataset's variables or column arrays have been assigned a name, to help simipfy the reading & writing of the code.
-```
-sl = df["Sepal Length"]
-sw = df["Sepal Width"]
-pl = df["Petal Length"]
-pw = df["Petal Width"]
-```
 - Creating a single figure, *f*, with 6no. subplots or axes, *ax1*, *ax2*...etc. The figure will consist of 3 rows of 2 axes or subplots. 
 ```
 f, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2)
@@ -252,15 +303,16 @@ plt.title("Combined Scatter Plots - Pairs of Variables")
 
 plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables") 
 ```
-- As part of this project's requirements, a total number of 6 plots have been produced, all saved as the default .png file in the *outputs* folder.
+- As part of this project's requirements, a total number of 7 plots have been produced, all saved as the default .png file in the *outputs* folder.
     - Sepal Length histogram.png
     - Sepal Width histogram.png
     - Petal Length histogram.png
     - Petal Width histogram.png
+    - Combined Histograms.png
     - Scatter Plots - Pairs of Variables.png
     - Combined Scatter Plots - Pairs of Variables.png
 
-**Note:** during the undertaking of this project and to aid with the main work of this project, additional scripts and plots have been produced for testing different code and experiementing with different plots and outputs. These files can be found in the *scripts* & *add_outputs* folders.
+**Note:** during the undertaking of this project and to aid with the development of the program, additional scripts and plots have been produced, these files can be found in the *scripts* folder and the *add_outputs* folder.
 
 - - - - - - - - -
 ## Analysis & Review of Program Outputs ##
