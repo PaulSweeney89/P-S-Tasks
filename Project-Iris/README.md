@@ -141,7 +141,7 @@ As part of the project, the 3 main tasks of the program is to:
 
 **1. Summary of Dataset Variables** 
 
-- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy was imported to use np.arange() & np.ones() functions aswell as matplotlib.ticker module was also used for configuring & formatting the axes ticks of the histograms.  
+- Import pandas & matplotlib python libraries to be used as part of the program & analysis of the Iris dataset. Numpy was imported to use np.arange() & np.ones() functions,matplotlib.ticker module was also imported for configuring & formatting the axes ticks of the histograms.  
 ```
 import numpy as np
 import pandas as pd
