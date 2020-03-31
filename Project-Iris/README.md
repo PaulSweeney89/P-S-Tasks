@@ -103,6 +103,7 @@ df_1.info(buf=f)
 print("dataset 1 - missing values", file=f)
 print(df_1.isnull().sum(), file=f)
 ```
+- Output of sum of missing values - no missing values within both datasets.
 
 ![review_datasets](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Review%20null%20values.png)
 
