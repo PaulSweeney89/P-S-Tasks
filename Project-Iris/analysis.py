@@ -2,7 +2,7 @@
 # Programming & Scripting Project 2020
 # Using datasets downloaded from http://archive.ics.uci.edu/ml/datasets/Iris
 
-from numpy import arange                                                        # from numpy import the arange() function
+import numpy as np                                                              # import numpy as np
 import pandas as pd                                                             # Import pandas as pd 
 import matplotlib.pyplot as plt                                                 # Import matplotliv.pyplot as plt
 import matplotlib.ticker as mtick                                               # Import matplotlib.ticker as mtick
@@ -42,7 +42,7 @@ for n in range(0, 4):
     start = min(df[var])                                                        # the start value of the histogram bins (min value of variable)
     end = max(df[var])                                                          # the end value of the histogram bins (max value of variable)
     step = (end - start) / n_bins                                               # variable values between bins 
-    plt.xticks(arange(start, (end + step) ,step))                               # applying bin values to the xticks of histogram           
+    plt.xticks(np.arange(start, (end + step) ,step))                               # applying bin values to the xticks of histogram           
                                                       
     plt.xlabel(var)                                                             # label x-axis (variable name)
     plt.ylabel("Sample Freq")                                                   # label y-axis (sample frequency)
@@ -57,47 +57,52 @@ for n in range(0, 4):
 
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)                 # using subplots to provide 4no histograms on a single figure (2 rows x 2 columns)
                                                                                 # y axis shared between plots (sharey=True)
- 
-ax1.hist(sl, bins=n_bins, facecolor='blue', ec="black",                         # axes 1 - Sepal Length (sl), no of bins, colour of plot, edge colour & label.  
-           label="Sepal Length (cm)")
+ax1.hist(sl, weights=np.ones(len(sl)) / len(sl),                                                                  
+            bins=n_bins, facecolor='blue', ec="black",                          # axes 1 - Sepal Length (sl), no of bins, colour of plot, edge colour & label. 
+            label="Sepal Length (cm)")                                          # weights added to display histogram as percentage.
+
 ax1.set(ylabel="Percentage of Samples")                                         # applying the shared y axis label
 
 start = min(sl)                                                                 # the start value of the histogram bins (min value of variable)
 end = max(sl)                                                                   # the end value of the histogram bins (max value of variable)
 step = (end - start) / n_bins                                                   # variable values between bins  
-ax1.set_xticks(arange(start, (end + step) ,step))                               # applying bin values to the xticks of histogram         
-ax1.yaxis.set_major_formatter(mtick.PercentFormatter())                         # displaying the y-axis values as percentage of samples
-ax1.legend()
+ax1.set_xticks(np.arange(start, (end + step) ,step))                            # applying bin values to the xticks of histogram         
+ax1.yaxis.set_major_formatter(mtick.PercentFormatter(1))                        # displaying the y-axis values as percentage of samples
+ax1.legend()                                          
 
-ax2.hist(sw, bins=n_bins, facecolor='green', ec="black",                        # axes 2 - Sepal Width (sw), no of bins, colour of plot, edge colour & label. 
-            label="Sepal Width (cm)")                                           
+ax2.hist(sw, weights=np.ones(len(sw)) / len(sw),                                # axes 2 - Sepal Width (sw), no of bins, colour of plot, edge colour & label.
+            bins=n_bins, facecolor='green', ec="black",                         # weights added to display histogram as percentage.
+            label="Sepal Width (cm)")
 
 start = min(sw)                                                                 # as per axes 1
 end = max(sw)                                                                   
 step = (end - start) / n_bins                                                   
-ax2.set_xticks(arange(start, (end + step) ,step))                               
-ax2.yaxis.set_major_formatter(mtick.PercentFormatter())                         
+ax2.set_xticks(np.arange(start, (end + step) ,step))                               
+ax2.yaxis.set_major_formatter(mtick.PercentFormatter(1))                         
 ax2.legend()
 
-ax3.hist(pl, bins=n_bins, facecolor='orange', ec="black",                       # axes 3 - Petal Length (pl), no of bins, colour of plot, edge colour & label.
+ax3.hist(pl, weights=np.ones(len(pl)) / len(pl),                                # axes 3 - Petal Length (pl), no of bins, colour of plot, edge colour & label.
+            bins=n_bins, facecolor='orange', ec="black",                        # weights added to display histogram as percentage.
             label="Petal Length (cm)")
+
 ax3.set(ylabel="Percentage of Samples")
 
 start = min(pl)                                                                 # as per axes 1
 end = max(pl)
 step = (end - start) / n_bins
-ax3.set_xticks(arange(start, (end + step) ,step))
-ax3.yaxis.set_major_formatter(mtick.PercentFormatter())
+ax3.set_xticks(np.arange(start, (end + step) ,step))
+ax3.yaxis.set_major_formatter(mtick.PercentFormatter(1))
 ax3.legend()
 
-ax4.hist(pw, bins=n_bins, facecolor='red', ec="black",                          # axes 4 - Petal Width (pw), no of bins, colour of plot, edge colour & label.
+ax4.hist(pw, weights=np.ones(len(pw)) / len(pw),                                # axes 4 - Petal Width (pw), no of bins, colour of plot, edge colour & label.
+            bins=n_bins, facecolor='red', ec="black",                           # weights added to display histogram as percentage.
             label="Petal Width (cm)")
 
 start = min(pw)                                                                 # as per axes 1
 end = max(pw)
 step = (end - start) / n_bins
-ax4.set_xticks(arange(start, (end + step) ,step))
-ax4.yaxis.set_major_formatter(mtick.PercentFormatter())
+ax4.set_xticks(np.arange(start, (end + step) ,step))
+ax4.yaxis.set_major_formatter(mtick.PercentFormatter(1))
 ax4.legend()
 
 plt.tight_layout()                                                              # adjusts subplots so all fit within figure

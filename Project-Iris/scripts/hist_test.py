@@ -1,5 +1,5 @@
 # plotting histograms using subplots
-
+import numpy as np
 from numpy import arange
 import pandas as pd                                                             
 import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ n_bins = 7
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)
 fig.suptitle("Histograms of Dataset Variables")
 
-ax1.hist(df["sepal_length"], bins=n_bins, facecolor='blue', ec="black", label="Sepal Length (cm)")
+ax1.hist(df["sepal_length"], weights=np.ones(len(df["sepal_length"])) / len(df["sepal_length"]), bins=n_bins, facecolor='blue', ec="black", label="Sepal Length (cm)")
 ax1.set(ylabel="Percentage of Samples")
 
 start = min(df["sepal_length"])
@@ -27,7 +27,7 @@ ax1.legend()
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
 
 
-ax2.hist(df["sepal_width"], bins=n_bins, facecolor='green', ec="black", label="Sepal Width (cm)") 
+ax2.hist(df["sepal_width"], weights=np.ones(len(df["sepal_width"])) / len(df["sepal_width"]), bins=n_bins, facecolor='green', ec="black", label="Sepal Width (cm)") 
 
 start = min(df["sepal_width"])
 end = max(df["sepal_width"])
@@ -38,7 +38,7 @@ ax2.legend()
 ax2.yaxis.set_major_formatter(mtick.PercentFormatter())
 
 
-ax3.hist(df["petal_length"], bins=n_bins, facecolor='orange', ec="black", label="Petal Length (cm)")
+ax3.hist(df["petal_length"], weights=np.ones(len(df["petal_length"])) / len(df["petal_length"]), bins=n_bins, facecolor='orange', ec="black", label="Petal Length (cm)")
 ax3.set(ylabel="Percentage of Samples")
 
 start = min(df["petal_length"])
@@ -49,7 +49,7 @@ ax3.set_xticks(arange(start, (end + step) ,step))
 ax3.legend()
 ax3.yaxis.set_major_formatter(mtick.PercentFormatter())
 
-ax4.hist(df["petal_width"], bins=n_bins, facecolor='red', ec="black", label="Petal Width (cm)")
+ax4.hist(df["petal_width"], bins=n_bins, weights=np.ones(len(df["petal_width"])) / len(df["petal_width"]), facecolor='red', ec="black", label="Petal Width (cm)")
 
 start = min(df["petal_width"])
 end = max(df["petal_width"])
@@ -57,10 +57,10 @@ step = (end - start) / n_bins
 ax4.set_xticks(arange(start, (end + step) ,step))
 
 ax4.legend()
-ax4.yaxis.set_major_formatter(mtick.PercentFormatter())
+ax4.yaxis.set_major_formatter(mtick.PercentFormatter(1))
 
 #plt.tight_layout()
-#plt.show()
+plt.show()
 #plt.savefig("add_outputs/histograms_combined",bbox_inches="tight")
 
 
@@ -136,7 +136,7 @@ for n in range(0, 4):
     plt.title("Histogram of " + var)  
                                                                                                                                         
     n = n + 1
-    plt.show()                                                                                 
+    #plt.show()                                                                                 
 
 
 
