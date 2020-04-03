@@ -29,7 +29,7 @@ pw = df["Petal Width"]
                          
 # Histograms of the Dataset Variables
                                                                            
-colour = ['r', 'g', 'b', 'c']                                                   # List of colours to be used for plotting different histograms.
+colour = ['b', 'g', 'm', 'r']                                                   # List of colours to be used for plotting different histograms.
 n = 0                                                                           # Initialize for loop with n = 0
 n_bins = 7                                                                      # setting the number of bins in each histogram = 7
                                                                                   
@@ -42,11 +42,12 @@ for n in range(0, 4):
     start = min(df[var])                                                        # the start value of the histogram bins (min value of variable)
     end = max(df[var])                                                          # the end value of the histogram bins (max value of variable)
     step = (end - start) / n_bins                                               # variable values between bins 
-    plt.xticks(np.arange(start, (end + step) ,step))                               # applying bin values to the xticks of histogram           
+    plt.xticks(np.arange(start, (end + step) ,step))                            # applying bin values to the xticks of histogram          
                                                       
     plt.xlabel(var)                                                             # label x-axis (variable name)
     plt.ylabel("Sample Freq")                                                   # label y-axis (sample frequency)
-    plt.title("Histogram of " + var)                                            # add titles                                                                             
+    plt.title("Histogram of " + var)                                            # add titles  
+    plt.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)            # adding grid                                                                   
     plt.savefig(fname="outputs/" + var + " histogram")                          # saving each plot as a individual file in the outputs folder 
     n = n + 1
 
@@ -57,6 +58,7 @@ for n in range(0, 4):
 
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)                 # using subplots to provide 4no histograms on a single figure (2 rows x 2 columns)
                                                                                 # y axis shared between plots (sharey=True)
+                                                                                
 ax1.hist(sl, weights=np.ones(len(sl)) / len(sl),                                                                  
             bins=n_bins, facecolor='blue', ec="black",                          # axes 1 - Sepal Length (sl), no of bins, colour of plot, edge colour & label. 
             label="Sepal Length (cm)")                                          # weights added to display histogram as percentage.
@@ -68,8 +70,10 @@ end = max(sl)                                                                   
 step = (end - start) / n_bins                                                   # variable values between bins  
 ax1.set_xticks(np.arange(start, (end + step) ,step))                            # applying bin values to the xticks of histogram         
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter(1))                        # displaying the y-axis values as percentage of samples
-ax1.legend()                                          
+ax1.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)                # adding horizontal grid to histogram
+ax1.legend()
 
+                                          
 ax2.hist(sw, weights=np.ones(len(sw)) / len(sw),                                # axes 2 - Sepal Width (sw), no of bins, colour of plot, edge colour & label.
             bins=n_bins, facecolor='green', ec="black",                         # weights added to display histogram as percentage.
             label="Sepal Width (cm)")
@@ -78,11 +82,13 @@ start = min(sw)                                                                 
 end = max(sw)                                                                   
 step = (end - start) / n_bins                                                   
 ax2.set_xticks(np.arange(start, (end + step) ,step))                               
-ax2.yaxis.set_major_formatter(mtick.PercentFormatter(1))                         
+ax2.yaxis.set_major_formatter(mtick.PercentFormatter(1))
+ax2.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)                         
 ax2.legend()
 
+
 ax3.hist(pl, weights=np.ones(len(pl)) / len(pl),                                # axes 3 - Petal Length (pl), no of bins, colour of plot, edge colour & label.
-            bins=n_bins, facecolor='orange', ec="black",                        # weights added to display histogram as percentage.
+            bins=n_bins, facecolor='m', ec="black",                             # weights added to display histogram as percentage.
             label="Petal Length (cm)")
 
 ax3.set(ylabel="Percentage of Samples")
@@ -92,7 +98,9 @@ end = max(pl)
 step = (end - start) / n_bins
 ax3.set_xticks(np.arange(start, (end + step) ,step))
 ax3.yaxis.set_major_formatter(mtick.PercentFormatter(1))
+ax3.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)
 ax3.legend()
+
 
 ax4.hist(pw, weights=np.ones(len(pw)) / len(pw),                                # axes 4 - Petal Width (pw), no of bins, colour of plot, edge colour & label.
             bins=n_bins, facecolor='red', ec="black",                           # weights added to display histogram as percentage.
@@ -103,6 +111,7 @@ end = max(pw)
 step = (end - start) / n_bins
 ax4.set_xticks(np.arange(start, (end + step) ,step))
 ax4.yaxis.set_major_formatter(mtick.PercentFormatter(1))
+ax4.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)
 ax4.legend()
 
 plt.tight_layout()                                                              # adjusts subplots so all fit within figure

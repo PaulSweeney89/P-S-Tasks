@@ -3,6 +3,7 @@
 # Using datasets downloaded from http://archive.ics.uci.edu/ml/datasets/Iris
 
 # Datasets Review Script
+# Script to review the datasets involved in the Fischer's Iris Data Set
 
 import pandas as pd                                                                 # Import pandas as pd 
 import datetime                                                                     # Import datetime
@@ -17,8 +18,8 @@ df_2 = pd.read_csv("../datasets/iris.data", names=head_row)
 
 f = open("add_outputs/review_output.txt", "w+")
 
-print("***REVIEW OF DATASETS***", file=f)
-print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), file=f)
+print("***REVIEW OF DATASETS***", file=f)                                           # print title to output file
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), file=f)                # printing datestamp to output file
 print("\n", file=f)
 
 # print info for df_1 & df_2

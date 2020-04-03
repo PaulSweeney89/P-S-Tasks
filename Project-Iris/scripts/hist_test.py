@@ -1,3 +1,8 @@
+# Project - Fischer's Iris Data Set
+# Programming & Scripting Project 2020
+# Script for plotting & testing various histogram plots
+
+
 # plotting histograms using subplots
 import numpy as np
 from numpy import arange

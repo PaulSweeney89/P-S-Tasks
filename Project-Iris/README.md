@@ -178,29 +178,30 @@ pw = df["Petal Width"]
 ```
 - To produce the histograms for the 4no. variables within the dataset, a **for** loop has been written to complete the task, keeping the code short, concise & hopefully clear.
 ```
-colour = ['r', 'g', 'b', 'c']
+colour = ['b', 'g', 'm', 'r']
 n = 0
 n_bins = 7 
 ```
-- The list *colour* will be used within the for loop to produce a different colour histogram for each of the dataset variables, "r" red, "g" green, "b" blue & "c" cyan.
+- The list *colour* will be used within the for loop to produce a different colour histogram for each of the dataset variables, "b" blue,  "g" green, & "m" magenta & "r" red.
 - n = 0, the starting value for n in the **for** loop.
 - The number of bins (n_bins) to be used in all histograms has been set to 7, following the review of a number histograms with different options, 7 bins appear to display practical distribution shape for the histograms. 
 ``` 
 for n in range(0, 4): 
                                                            
-    var = head_row[n]                                                           
-    plt.figure(n)                                                               
-    plt.hist(df[var], bins=n_bins, facecolor=colour[n], ec="black")             
+    var = head_row[n]
+    plt.figure(n)
+    plt.hist(df[var], bins=n_bins, facecolor=colour[n], ec="black")
 
-    start = min(df[var])                                                        
-    end = max(df[var])                                                         
-    step = (end - start) / n_bins                                                
-    plt.xticks(arange(start, (end + step) ,step))                                          
+    start = min(df[var])
+    end = max(df[var])
+    step = (end - start) / n_bins
+    plt.xticks(arange(start, (end + step) ,step))
                                                       
-    plt.xlabel(var)                                                             
-    plt.ylabel("Sample Freq")                                                   
-    plt.title("Histogram of " + var)                                                                                                                         
-    plt.savefig(fname="outputs/" + var + " histogram")                           
+    plt.xlabel(var)
+    plt.ylabel("Sample Freq")
+    plt.title("Histogram of " + var)
+    plt.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)
+    plt.savefig(fname="outputs/" + var + " histogram")
     n = n + 1
 ```
 - The **for** loop will complete 4no. iterations - (n=0, n=1, n=2, n=3), 1no. iteration for each of the 4 variables in the dataset.
@@ -211,6 +212,7 @@ for n in range(0, 4):
     - plot the histogram bin range values or xtick values, starting with the minimum variable value & finishing with the max vaiable value and all the bin range values inbetween which are determined by the width of the bins or the number of bins used for the histogram. The **numpy.arange()** function was used to plot the xtick values.
     - Plot the labels for the histograms, xlabel = variable name & ylabel = sample frequency.
     - Plot the title of the histogram with the individual variable name.
+    - plot a horizontal grid off the y-axis tick values, setting the linestyle and lineweight.
     - Save the histogram as a .png file in the outputs folder of the repository with the filename including the variable name.
 - n = n+1 to continue to the next step of **for** loop iteration. 
 
@@ -227,22 +229,26 @@ fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharey=True)
 - The bin count values of the histogram were weighted so the results are displayed as a precentage of the total sample number rather than showing the sample number. 
 - Setting the label of the y-axis of ax1 which is share with ax3. 
 ```
-ax1.hist(sl, weights=np.ones(len(sl)) / len(sl),                                                                  
+ax1.hist(sl, weights=np.ones(len(sl)) / len(sl),
             bins=n_bins, facecolor='blue', ec="black",                          
             label="Sepal Length (cm)")
 ax1.set(ylabel="Percentage of Samples")
 ```
 - As from the histograms above, plotting or setting the histogram bin range values or xtick values.
 ```
-start = min(sl)                                                                 
-end = max(sl)                                                                   
-step = (end - start) / n_bins                                                    
+start = min(sl)
+end = max(sl)
+step = (end - start) / n_bins
 ax1.set_xticks(arange(start, (end + step) ,step)) 
 ```
 - In addition to displaying the xtick or bin ranges values on the x-axis of the subplots, another very useful and practical application is to use the matplotlib.ticker (imported as mtick) module to format the histogram axes ticks. 
-In this incidence using the **PercentFormatter()** to with the weighted count values sets the y-axis and histogram sample counts as a percentage of the total sample counts, which helps improve the insights into the dataset and comparisions between the histograms.      
+In this incidence using the **PercentFormatter()** to with the weighted count values sets the y-axis and histogram sample counts as a percentage of the total sample counts, which helps improve the insights into the dataset and comparisions between the histograms.
 ```
 ax1.yaxis.set_major_formatter(mtick.PercentFormatter())
+```
+- Adding a horizontal grid off the y-axis tick values, setting the linestyle and lineweight.
+```
+ax1.grid(which='major', axis='y', linestyle='dotted', alpha=0.8)
 ```
 - Applying a legend to axes ax1, to help distinguish between the 4no. variable histograms.
 ```
@@ -252,7 +258,7 @@ ax1.legend()
 - matplotlib **tight_layout()** to automatically adjust the subplot parameters so the subplots fits witin the figure area
 - Save the histogram as a .png file in the outputs folder of the repository
 ```
-plt.tight_layout()                                                              
+plt.tight_layout()
 plt.savefig(fname="outputs/Combined Histograms") 
 ```
 
@@ -292,7 +298,8 @@ ax1.legend(fontsize="x-small", markerscale=2, edgecolor="black")
 ```
 plt.savefig(fname="outputs/Scatter Plots - Pairs of Variables")
 ```
-- In addition to the subplots of each individual pair of variables, code has been writen to display all the pairs combined on a single scatter plot. 
+- In addition to the subplots of each individual pair of variables, code has been writen to display all the pairs combined on a single scatter plot.
+Setting the markerstyle, the colour c='b' and label for each of the scatter plots. 
 ```
 plt.figure(5)
 plt.scatter(sl, sw, marker='.', c='b', label="SL v SW") 
@@ -321,17 +328,33 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
 ## Analysis & Review of Program Outputs ##
 - - - - - - - - -
 - Review of the iris dataset summary, shows that the sepal lengths & sepal widths of the plant are larger than the petal lengths and widths.
-- The mean sepal length is approx 1.5 times longer than the mean petal length.
-- The mean sepal width is approx 2.5 times wider than the mean petal width.
-- This would be as expected as the sepal of a flower forms the protective encasing layer of a flower in bud, and is the first layers of a flower to open during bloom.
+    - The mean sepal length is approx 1.5 times longer than the mean petal length.
+    - The mean sepal width is approx 2.5 times wider than the mean petal width.
+    - This would be as expected as the sepal of a flower forms the protective encasing layer of a flower in bud, and is the first layers of a flower to open during bloom.
 
 ![summary](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Summary.png)
 
 - Review of the histograms:
-- 
+    - The sepal length histogram shows a wide spread distribution with only small variations in the number of samples between the different ranges of lengths. The peak of the histogram occurs at the sepal length range of approx. 5.3 - 5.8cm with approx. 23% of the samples (~34 No.)  occuring within this range. From the summary output it can be seen that the mean sepal length ~ 5.8cm.
+    - The sepal width histogram has a more definite peak, with almost 40% of the samples (~59 No.) occuring within the width range of approx. 2.6 - 3.0cm. From the summary output it can be seen that the mean sepal width ~ 3.1cm.
+    - The petal length histogram displays 2 peaks, the first in the approx. range 1.0 - 1.8cm with approx 32% of the samples (~48 No.) occurring here and the second occurring in the approx. range 4.3 - 5.2cm, with just under 30% (~43 No.) of the samples occurring within this range. The 2 peaks in the histogram may indicate a distinctive difference between the petal length variables, one cluster made up of samples within the first shorter petal length range and a second cluster of samples with longer length petals.
+    - Similar to the petal length histogram the petal width histogram follows a similar shape with 2 peaks, which may also indicate 2 distinctive clusters of samples within the dataset. The first hisogram peak occurs at the petal width range of approx 0.1 - 0.4cm with a sample number of approx. 32% (~48 No.), while the second peak in the range of petal width of 1.4 - 1.8cm with 20% of the samples (30 No.)
 
 ![histograms combined](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/outputs/Combined%20Histograms.png)
 
+- Review of scatterplots:
+    - From reviewing the scatter plots it can be seen that a number of the variable pairs display various levels of linear correlation, while other variable pairs don't appear to show a distinct relationship.
+    - Sepal Length (SL) vs Petal Length (PL) shows a moderate positve linear correlation.
+    - Sepal Length (SL) vs Petal Length (PW) shows a moderate positve linear correlation.
+    - Petal Length (PL) vs Petal Width (PW) shows a strong positve linear correlation. 
+    - The remaining 3 No. scatterplots of pairs of variables, Sepal Length (SL) vs Sepal Width (SW), Sepal Width vs Petal Length (PL) & Sepal Width vs Petal Width (PW) appear random and do not display a clear relationship between variables.
+
+![scatter plots paired](
+
+- To further investigate the relationship between the pairs of variables within the dataset, a number of additional scatterplots have been included with this project.
+- The seaborn python library has been used to include scatterplots displaying the data points grouped by 'class' i.e flower species and also displaying the scatterplot's best fit line or regression line. 
+
+|----------|------------|-----------|
 
 References:
 
@@ -348,6 +371,8 @@ References:
 [Real Python Matplotlib](https://realpython.com/python-matplotlib-guide/)
 
 [Histogram Y-axis as Percentage](https://stackoverflow.com/questions/51473993/plot-an-histogram-with-y-axis-as-percentage-using-funcformatter)
+
+[Histogram adding grids](https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html)
 
 **Additional Notes:** 
 - Text & mark-ups added to images & screenshots using GIMP - GNU Image Manipulation Program.
