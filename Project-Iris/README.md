@@ -349,12 +349,16 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
     - Petal Length (PL) vs Petal Width (PW) shows a strong positve linear correlation. 
     - The remaining 3 No. scatterplots of pairs of variables, Sepal Length (SL) vs Sepal Width (SW), Sepal Width vs Petal Length (PL) & Sepal Width vs Petal Width (PW) appear random and do not display a clear relationship between variables.
 
-![scatter plots paired](
+![scatter plots paired](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/outputs/Scatter%20Plots%20-%20Pairs%20of%20Variables.png)
 
 - To further investigate the relationship between the pairs of variables within the dataset, a number of additional scatterplots have been included with this project.
-- The seaborn python library has been used to include scatterplots displaying the data points grouped by 'class' i.e flower species and also displaying the scatterplot's best fit line or regression line. 
+- The seaborn python library has been used to include scatterplots displaying the data points grouped by 'class' i.e flower species and also display the scatterplot's 'best fit line' or regression line. 
 
-|----------|------------|-----------|
+![seabornPLvPW](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/scripts/add_outputs/Seaborn_Scatter_PLvPW.png)
+![seabornSLvPL](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/scripts/add_outputs/Seaborn_Scatter_SLvPL.png)
+![seabornSLvPW](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/scripts/add_outputs/Seaborn_Scatter_SLvPW.png)
+
+- 
 
 References:
 
