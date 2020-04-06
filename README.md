@@ -17,6 +17,8 @@ Programming and Scripting Weekly Tasks
 
 - Week 8: plot
 
+- Project: Project-Iris
+
 [Learn Online Gmit](https://learnonline.gmit.ie/course/view.php?id=1598)
 
 ## GIT Cheatsheet ##
