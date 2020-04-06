@@ -330,7 +330,7 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
 - Review of the iris dataset summary, shows that the sepal lengths & sepal widths of the plant are larger than the petal lengths and widths.
     - The mean sepal length is approx 1.5 times longer than the mean petal length.
     - The mean sepal width is approx 2.5 times wider than the mean petal width.
-    - This would be as expected as the sepal of a flower forms the protective encasing layer of a flower in bud, and is the first layers of a flower to open during bloom.
+    - This would be as expected as the sepal of a flower forms the protective encasing layer of a flower in bud, and is the first layers of a flower to open during bloom and would therefore be larger than the plants petal.
 
 ![summary](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/Images/Summary.png)
 
@@ -351,14 +351,24 @@ plt.savefig(fname="outputs/Combined Scatter Plots - Pairs of Variables")
 
 ![scatter plots paired](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/outputs/Scatter%20Plots%20-%20Pairs%20of%20Variables.png)
 
-- To further investigate the relationship between the pairs of variables within the dataset, a number of additional scatterplots have been included with this project.
-- The seaborn python library has been used to include scatterplots displaying the data points grouped by 'class' i.e flower species and also display the scatterplot's 'best fit line' or regression line. 
+- To further investigate the relationship between the pairs of variables within the dataset, a number of additional scatterplots have been included within this project.
+- Scatterplots have been produced using matplotlib's scatterplot function, displaying the 3 different dataset's flower class or species as different colour datapoints. 
+- The seaborn python library has also been used to include scatterplots of the 3 postive linear correlated scatterplots mentioned above, Sepal Length (SL) vs Petal Length (PL), Sepal Length (SL) vs Petal Length (PW) and Petal Length (PL) vs Petal Width (PW). The scatterplots again display the data points identified by 'class' and also display the scatterplot's 'best fit line' or regression line.
+- Scripts & output plots for these additional scatterplots can be found in the *scripts* & *add_outputs* folders of this repository.
 
 ![seabornPLvPW](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/scripts/add_outputs/Seaborn_Scatter_PLvPW.png)
 ![seabornSLvPL](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/scripts/add_outputs/Seaborn_Scatter_SLvPL.png)
 ![seabornSLvPW](https://github.com/PaulSweeney89/P-S-Tasks/blob/master/Project-Iris/scripts/add_outputs/Seaborn_Scatter_SLvPW.png)
 
-- 
+- The additional scatterplots which display the iris flower species, show flower types as datapoint clusters with clear separations or boundaries between the clusters. 
+e.g on the scatterplot for Petal Length vs Petal Width there is a definite boundary or separation between the flower types clusters, the Iris Setosa datapoints cluster within the lower range of the petal length & petal width, the Iris Versicolor within the medium range and Iris Virginica within the longer range with some cross-over of datapoints between the two later flower types. These clusters of datapoints between the flower classes would also explain the double peak seen in the histogram plots, which was discussed previously.
+- The plot of the regression line, shows a strong linear correlation between a number of the variables, with the scatterplot of petal length vs petal width showing the strongest correlation, i.e when the petal length increases in size the petal width increases in size. 
+- The separation between the clusters of datapoints for the different flower types between the dataset variables enabled Fischer to classify and identify the iris sepecies based on their petal & sepal features. The linear correlations seen between some variables would also allow for the estimating of an unknown  variable value by using other known variable values. 
+
+
+The work of Fischer and the Iris dataset is used extensively as a example for machine learning and statistical classification techniques, although not forming part of this project it would be possible to take the work further to develop a statistical model for predicting the class or sepecies of iris based solely on it's measured features, i.e petal, sepal lengths and widths. 
+It is used as an example of supervised learning, where the training dataset conisting of known inputs (Iris features - petal, sepal lengths and widths) are mapped with the correct known outputs (Iris sepecies) to form an algorithm that finds correlaltions between the inputs and outputs which can then be used to classify or identify the Iris plant sepecies for an unknown set of input variables. 
+  
 
 References:
 
@@ -377,6 +387,12 @@ References:
 [Histogram Y-axis as Percentage](https://stackoverflow.com/questions/51473993/plot-an-histogram-with-y-axis-as-percentage-using-funcformatter)
 
 [Histogram adding grids](https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.grid.html)
+
+[Scatterplots](https://jakevdp.github.io/PythonDataScienceHandbook/04.02-simple-scatter-plots.html)
+
+[Seaborn Scatterplots](https://honingds.com/blog/seaborn-scatterplot/)
+
+[Seaborn Regression Plot](https://seaborn.pydata.org/generated/seaborn.regplot.html)
 
 **Additional Notes:** 
 - Text & mark-ups added to images & screenshots using GIMP - GNU Image Manipulation Program.
